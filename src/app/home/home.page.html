@@ -1,20 +1,36 @@
-<ion-header [translucent]="true">
+<!-- src/app/home/home.page.html -->
+
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Transportes Futuristas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="header-section">
+    <h1>Bienvenido al Futuro del Transporte</h1>
+    <p>Explora nuestras innovadoras soluciones de movilidad.</p>
+    <ion-button expand="full" color="primary" (click)="goToLoginPage()">Iniciar Sesión</ion-button>
+  </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="features-section">
+    <h2>Por qué Amamos Nuestra App</h2>
+    <ion-item>
+      <ion-label>¡Viajes Divertidos!</ion-label>
+      <p>Descubre rutas emocionantes y comparte aventuras con amigos.</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>¡Conoce Nuevas Personas!</ion-label>
+      <p>Amplía tu círculo social mientras compartes viajes con personas interesantes.</p>
+    </ion-item>
+    <!-- Agrega más características aquí -->
+  </div>
+
+  <div class="join-us-section">
+    <h2>Únete a Nosotros</h2>
+    <p>Regístrate y forma parte de nuestra comunidad futurista.</p>
+    <ion-button expand="full" color="orange" (click)="goToRegistrationPage()">Registrarse</ion-button>
   </div>
 </ion-content>
