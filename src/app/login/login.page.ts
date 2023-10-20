@@ -1,8 +1,9 @@
 // src/app/login/login.page.ts
-
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Store } from '@ngrx/store';
+import * as AuthActions from '../auth/auth.actions'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-login',
@@ -15,22 +16,13 @@ export class LoginPage {
 
   constructor(
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private store: Store
   ) { }
 
   login() {
-    // Realiza aquí la lógica de autenticación, por ejemplo, verifica las credenciales con un servidor.
-    // En este ejemplo, asumiremos que el inicio de sesión es exitoso y navegaremos a una página diferente.
-
-    // Reemplaza esto con tu lógica de autenticación.
-    if (this.username === 'usuario' && this.password === 'contraseña') {
-      // Inicio de sesión exitoso, navega a la página de inicio.
-      this.router.navigate(['/home']);
-    } else {
-      // Inicio de sesión fallido, muestra un mensaje de error o manéjalo según sea necesario.
-      // Por simplicidad, solo mostraremos un mensaje en la consola.
-      console.log('Inicio de sesión fallido. Por favor, verifica tus credenciales.');
-    }
+    // Despacha la acción de inicio de sesión con los datos del formulario
+    this.store.dispatch(AuthActions.login({ username: this.username, password: this.password }));
   }
 
   // Método para navegar a la página de registro
@@ -38,7 +30,7 @@ export class LoginPage {
     this.router.navigate(['/registration']);
   }
 
-  // Método para navegar a la página de bienvenida
+  // Método para navegar a la página de inicio
   goToHomePage() {
     this.router.navigate(['/home']);
   }
@@ -69,3 +61,5 @@ export class LoginPage {
     await alert.present();
   }
 }
+
+

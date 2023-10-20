@@ -1,12 +1,9 @@
-<!-- src/app/registration/registration.page.html -->
-
 <ion-header>
   <ion-toolbar>
     <ion-title>
       Registrarse
     </ion-title>
     <ion-buttons slot="start">
-      <!-- Botón de regreso a casa con ícono y (click) que llama a registrarse() -->
       <ion-button (click)="registrarse()">
         <ion-icon slot="icon-only" name="home"></ion-icon>
       </ion-button>
@@ -19,37 +16,39 @@
     <h2>¡Únete a Nosotros!</h2>
     <p>Completa los siguientes campos para crear tu cuenta.</p>
 
-    <!-- Separar los campos de entrada de credenciales para una mejor organización -->
     <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
+      <ion-label position="floating" color="primary">Nombre de usuario</ion-label>
+      <ion-input [(ngModel)]="nombreUsuario" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Nombre</ion-label>
       <ion-input [(ngModel)]="nombre" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Apellido</ion-label>
+      <ion-label position="floating" color="primary">Apellido</ion-label>
       <ion-input [(ngModel)]="apellido" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-label position="floating" color="primary">Correo Electrónico</ion-label>
       <ion-input [(ngModel)]="correo" type="email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
+      <ion-label position="floating" color="primary">Contraseña</ion-label>
       <ion-input [(ngModel)]="contrasena" type="password"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Verificar Contraseña</ion-label>
+      <ion-label position="floating" color="primary">Verificar Contraseña</ion-label>
       <ion-input [(ngModel)]="verificarContrasena" type="password"></ion-input>
     </ion-item>
 
-    <!-- Botón de registro con el mismo color naranja mandarina que en la página de inicio -->
     <ion-button expand="full" color="orange" (click)="registrarse()">Registrarse</ion-button>
   </div>
 
-  <!-- Agregar sección adicional con texto explicativo -->
   <div class="additional-info">
     <h3>¿Ya Tienes una Cuenta?</h3>
     <p>Si ya eres miembro, puedes iniciar sesión desde la página de inicio.</p>

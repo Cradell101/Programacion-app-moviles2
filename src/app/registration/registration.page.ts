@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration.page.scss'],
 })
 export class RegistrationPage {
+  nombreUsuario: string = '';
   nombre: string = '';
   apellido: string = '';
   correo: string = '';
@@ -22,7 +23,7 @@ export class RegistrationPage {
     this.router.navigate(['/login']);
   }
 
-  // Método para registrarse
+  // Método para registrarse localmente
   registrarse() {
     // Verificar si las contraseñas coinciden
     if (this.contrasena !== this.verificarContrasena) {
@@ -31,11 +32,22 @@ export class RegistrationPage {
       return;
     }
 
-    // Las contraseñas coinciden, puedes realizar el registro aquí
-    // Implementa la lógica para registrar al usuario, por ejemplo, enviar datos al servidor
+    // Las contraseñas coinciden, puedes realizar el registro localmente
+    // Implementa la lógica para registrar al usuario, por ejemplo, guardar en el almacenamiento local
+
+    // Guarda los datos del usuario en el almacenamiento local (localStorage)
+    const usuario = {
+      nombreUsuario: this.nombreUsuario,
+      nombre: this.nombre,
+      apellido: this.apellido,
+      correo: this.correo,
+      contrasena: this.contrasena,
+    };
+    localStorage.setItem('usuario', JSON.stringify(usuario));
 
     // Una vez registrado, puedes redirigir al usuario a otra página, por ejemplo, la página de inicio
     this.router.navigate(['/home']);
   }
 }
+
 
